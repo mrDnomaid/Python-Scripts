@@ -43,7 +43,6 @@ os.system('clear')
 
 print('4 ) GID')
 print(' ')
-print('')
 print('Example: 1234')
 print('[i] To find your GID, follow the steps here: http://bit.ly/GID-UID')
 gid = raw_input('>> ')
