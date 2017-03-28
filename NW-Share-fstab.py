@@ -22,7 +22,7 @@ os.system('clear')
 print('2 ) Mount Point')
 print(' ')
 print('Example: /media/nas-documents')
-print('/!\ The folder name here will be what the share shows up as')
+print('[i] The folder name here will be what the share shows up as')
 mount_point = raw_input('>> ')
 
 os.system('clear')
@@ -72,7 +72,7 @@ isok = raw_input(' ')
 os.system('clear')
 
 print('6 ) Doing the thing!')
-print('')
+print(' ')
 print('Opening file')
 # This is probably the worst way to do this, but it works so I don't care
 fstab = open('/etc/fstab', 'a')
