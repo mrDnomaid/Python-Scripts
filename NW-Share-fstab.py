@@ -67,7 +67,7 @@ print(' ')
 
 print('Is this OK?')
 print('Enter to continue, Ctrl+C to cancel and exit.')
-isok = raw_input(' ')
+isok = raw_input('')
 
 os.system('clear')
 
