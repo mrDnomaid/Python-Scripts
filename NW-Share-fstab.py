@@ -73,6 +73,9 @@ os.system('clear')
 
 print('6 ) Doing the thing!')
 print(' ')
+print('Installing CIFS if required')
+os.system('apt-get install cifs-utils')
+print(' ')
 print('Opening file')
 # This is probably the worst way to do this, but it works so I don't care
 fstab = open('/etc/fstab', 'a')
