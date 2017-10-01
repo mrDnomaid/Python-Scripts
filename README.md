@@ -1,11 +1,13 @@
-# Python-Scripts
-#### Random small Python things. Most of them probably suck, but at least they work (to some degree).
+# pythonscripts
+### Python things I make. 
 
 ---
 
-## NW-Share-fstab.py
-Adds CIFS network shares (and older SMB shares too, I think) to the fstab file to mount permanently.  
-This can be done manually rather quickly, but I'm lazy and enjoy making things.
+## network-share.py
+Easily add SMB shares to `/etc/fstab`.
+
+## hostname.py
+Change a device's hostname via the command line, no need to edit any files yourself. 
 
 ## zoidberg.py
 This was the first Python thing I ever made. Basically a glorified "hello world" that prints Zoidberg's face.
