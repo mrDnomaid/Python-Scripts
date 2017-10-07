@@ -1,5 +1,5 @@
-# pythonscripts
-### Python things I make. 
+# scripts
+Useful scripts for automating things I do often enough that they require a script to automate them Edit
 
 ---
 
