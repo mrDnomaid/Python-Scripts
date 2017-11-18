@@ -60,7 +60,7 @@ sed -i 's/bobby/powerline-plain/g' /home/$USER/.bashrc
 
 # Delete temp folder
 rm -rf /tmp/dno-install
-rm -f *deb* 
+rm -f *deb*
 
 clear
 echo 'Done!'
