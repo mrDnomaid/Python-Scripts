@@ -28,7 +28,7 @@ apt upgrade --yes --force-yes
 ####
 
 # Install command line tools
-apt install nano git curl wget ffmpeg htop sed youtube-dl software-properties-common python-software-properties cowsay figlet --yes --force-yes
+apt install nano git curl wget ffmpeg htop sed youtube-dl rtv software-properties-common python-software-properties cowsay figlet --yes --force-yes
 
 # Neofetch
 add-apt-repository ppa:dawidd0811/neofetch --yes --force-yes
