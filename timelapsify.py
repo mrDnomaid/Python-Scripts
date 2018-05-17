@@ -7,7 +7,7 @@ from random import randint
 
 #framerate = 25
 #width = 2160
-folder = 'timelapsify-temp'
+folder = '.timelapsify-temp'
 rand = randint(1000000, 9999999)
 framerate = sys.argv[1]
 width = sys.argv[2]
