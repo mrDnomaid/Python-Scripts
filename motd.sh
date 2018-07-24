@@ -5,40 +5,39 @@
 esc=`echo -en "\033"`
 
 # Set colors
-cc_red="${esc}[0;31m"
-cc_green="${esc}[0;32m"
-cc_yellow="${esc}[0;33m"
-cc_blue="${esc}[0;34m"
-cc_normal=`echo -en "${esc}[m\017"`
+b="${esc}[;96m"
+a="${esc}[;95m"
+w="${esc}[;90m"
+N=`echo -en "${esc}[m\017"`
 
 clear
 
-echo "${cc_red}#####   HP PROLIANT   #####"
-echo "${cc_green}#####  fishys .space  #####"
-echo "##### hi@trobinson.me #####${cc_yellow}"
+echo "${b}#  HP PROLIANT"
+echo "${a}# fishys.space"
+echo "# hi@trobinson.me"
 
 echo ""
 echo ""
-echo "${cc_blue}#####  TIME  IS  #####${cc_yellow}"
+echo "${b}# TIME IS${w}"
 date
 
 echo ""
-echo "${cc_blue}##### LAST LOGIN #####${cc_yellow}"
+echo "${a}# LAST LOGINS${w}"
 last | head -5
 
 echo ""
-echo "${cc_blue}##### DISK STATS #####${cc_yellow}"
+echo "${b}# DISK STATS${w}"
 hpacucli controller slot=4  physicaldrive all show | grep physical | sed "s/ //g"
 df -h | grep blacks
 
 echo ""
-echo "${cc_blue}##### CPU USAGE #####${cc_yellow}"
+echo "${a}# CPU USAGE${w}"
 ps -eo pcpu,pid,user,args | sort -k 1 -r | head -5
 
 echo ""
-echo "${cc_blue}#### MEM USAGE #####${cc_yellow}"
+echo "${b}# MEM USAGE${w}"
 free -mh
 
 echo ""
 echo ""
-echo "${cc_normal}"
+echo "${N}"
