@@ -1,66 +1,73 @@
 #!/bin/bash
 
-####
-# Some things I run after Ubuntu installs on new devices
-####
+###
+# Install all the software I need
+###
 
-clear
+sudo apt-get update
 
-if [[ $EUID -ne 0 ]]; then
-   echo 'Please run as root'
-   exit 1
-fi
+echo '[installing] Internet'
+sudo apt-get install firefox thunderbird deluge
 
-echo 'dno-install'
+echo '[installing] Terminal Utilities'
+sudo apt-get install tilix neofetch git youtube-dl beep cowsay figlet lolcat
+
+echo '[installing] Specialist'
+sudo apt-get install darktable hugin kdenlive gimp gthumb
+
+echo '[installing] Filesystem Utils'
+sudo apt-get install exfat-fuse exfat-utils cifs cifs-utils
+
+echo '[doing] Creating temporary folders'
+sudo mkdir /tmp/pkg-install/
+
+echo '[doing] Installing packages not available in default repos'
+
+echo '[downloading] Atom'
+sudo wget -O '/tmp/pkg-install/atom.deb' https://atom.io/download/deb
+echo '[installing] Atom'
+sudo dpkg -i /tmp/pkg-install/atom.deb
+
+echo '[downloading] GitKraken'
+sudo wget -O '/tmp/pkg-install/gitk.deb' https://www.gitkraken.com/download/linux-deb
+echo '[installing] GitKraken'
+sudo dpkg -i /tmp/pkg-install/gitk.deb
+
+echo '[downloading] Discord'
+sudo wget -O '/tmp/pkg-install/discord.deb' https://discordapp.com/api/download/canary?platform=linux&format=deb
+echo '[installing] Discord'
+sudo dpkg -i /tmp/pkg-install/discord.deb
+
+echo '[downloading] GPMDP'
+sudo wget -O '/tmp/pkg-install/music.deb' https://github.com/MarshallOfSound/Google-Play-Music-Desktop-Player-UNOFFICIAL-/releases/download/v4.5.0/google-play-music-desktop-player_4.5.0_amd64.deb
+echo '[installing] GPMDP'
+sudo dpkg -i /tmp/pkg-install/music.deb
+
+echo '[downloading] Keybase'
+sudo wget -O '/tmp/pkg-install/keybase.deb' https://prerelease.keybase.io/keybase_amd64.deb
+echo '[installing] Keybase'
+sudo dpkg -i /tmp/pkg-install/keybase.deb
+
+echo '[installing] Dependancies for packages installed with DPKG'
+sudo apt-get -f install
+
+echo '[doing] Installing packages from non-default repos'
+
+echo '[adding] Etcher repo'
+echo "deb https://dl.bintray.com/resin-io/debian stable etcher" | sudo tee /etc/apt/sources.list.d/etcher.list
+echo '[trusting] Bintray key'
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 379CE192D401AB61
+
+echo '[adding] Etcher repo'
+echo "deb https://dl.bintray.com/resin-io/debian stable etcher" | sudo tee /etc/apt/sources.list.d/etcher.list
+echo '[trusting] Bintray key'
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 379CE192D401AB61
+echo '[doing] Updating package lists to install Etcher'
+echo '[installing] Etcher'
+sudo apt-get install etcher-electron
+
 echo ''
 echo ''
-
-# Create temp folder
-mkdir /tmp/dno-install/
-
-# Make sure everything is up to date
-apt update
-apt upgrade --yes --force-yes
-
-
-####
-# Install some frequently used programs/utilities
-####
-
-# Install command line tools
-apt install nano git curl wget ffmpeg htop sed youtube-dl rtv software-properties-common python-software-properties cowsay figlet --yes --force-yes
-
-# Neofetch
-add-apt-repository ppa:dawidd0811/neofetch --yes --force-yes
-apt update
-apt install neofetch --yes --force-yes
-
-# Install GUI programs
-apt install vlc firefox nautilus gnome-disks gparted gedit tilix --yes --force-yes
-
-# Download and install Atom, Chrome
-wget https://atom.io/download/deb -o /tmp/dno-install/atom.deb
-apt install /tmp/dno-install/atom.deb --yes --force-yes
-
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -o /tmp/dno-install/chrome.deb
-apt install /tmp/dno-install/chrome.deb --yes --force-yes
-
-
-# Install Bash-It
-git clone --depth=1 https://github.com/Bash-it/bash-it.git /home/$USER/.bash_it
-bash /home/$USER/.bash_it/install.sh
-# Change Bash-It theme
-sed -i 's/bobby/powerline-plain/g' /home/$USER/.bashrc
-
-
-# Custom aliases
-# echo '\n' >> /home/$USER/.bashrc
-# echo 'alias ytdl-mp4="youtube-dl -f \'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best\' --verbose"' >> /home/$USER/.bashrc
-# echo 'alias ytdl-mp3="youtube-dl -f \'bestaudio[ext=mp3]/best[ext=mp3]/best\' --verbose"' >> /home/$USER/.bashrc
-
-# Delete temp folder
-rm -rf /tmp/dno-install
-rm -f *deb*
-
-clear
-echo 'Done!'
+echo '##### Done! (Hopefully) #####'
+echo ''
+echo ''
