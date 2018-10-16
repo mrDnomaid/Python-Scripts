@@ -27,5 +27,6 @@ echo "${red}   \`-:::::\`   ..--.\`   ::::::.           "
 echo "${red}      \`...\`  \`...--..\`  \`...\`            "
 echo "${red}            .::::::::::                  "
 echo "${red}             \`.-::::-\`                   "
-echo "${green}${last -n 3}"
+echo "${green}"
+last -n 3
 echo "${white}"
